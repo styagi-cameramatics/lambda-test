@@ -1,0 +1,73 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+
+Parameters:
+  LambdaTimeout:
+    Type: String
+    Description: Timeout of lambda function
+    Default: 10
+
+Resources: 
+  Lambda-test:
+    Type: AWS::Lambda::Function
+    Architectures: 
+      - x86_64
+    Code: 
+      function/
+    # CodeSigningConfigArn: String
+    # DeadLetterConfig: 
+    #   DeadLetterConfig
+    Description: 'Test lambda function'
+    # Environment: 
+    #   Environment
+    # EphemeralStorage: 
+    #   EphemeralStorage
+    # FileSystemConfigs: 
+    #   - FileSystemConfig
+    FunctionName: Lambda-test
+    Handler: index.func_handler
+    # ImageConfig: 
+    #   ImageConfig
+    # KmsKeyArn: String
+    # Layers: 
+    #   - String
+    MemorySize: 240
+    Role: !Ref LambdaTrustRole
+    Runtime: python3.9
+    Timeout: !Ref LambdaTimeout
+    Tags: 
+      - test
+      - sajal
+    Timeout: Integer
+
+  LambdaTrustRole:
+    Type: 'AWS::IAM::Role'
+    Description: Creating service role in IAM for AWS Lambda
+    Properties:
+      Path: /
+      RoleName: test-role
+      Tags: 
+        - test
+        - sajal
+      Policies:
+        - PolicyName: LambdaWorkerPolicy
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Action:
+                  - 'logs:CreateLogGroup'
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                  - 'logs:DescribeLogStreams'
+                Resource: '*'
+                Effect: Allow
+        - PolicyName: 
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Action:
+                  - 's3:ListAllMyBuckets'
+                  # -  
+                Resource: '*'
+                Effect: Allow
+    
