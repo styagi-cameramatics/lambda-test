@@ -24,7 +24,7 @@ Resources:
     #   EphemeralStorage
     # FileSystemConfigs: 
     #   - FileSystemConfig
-    FunctionName: Lambda-test
+    FunctionName: lambda-test
     Handler: index.func_handler
     # ImageConfig: 
     #   ImageConfig

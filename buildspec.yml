@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - export AWS_DEFAULT_REGION=us-east-1
+      - sudo apt-get update
+      #- sudo apt install python3.9 -y
+      - python --version
+  
+  build:
+    commands:
+      - sam build --template function_template.yml -b build/lambda-function
+      - sam package --template-file build/rest-api/API/template.yaml --s3-bucket $S3_BUCKET --output-template-file lambda.yml
+
+artifacts:
+  secondary-artifacts:
+    secondary_artifact_packaged:
+      files:
+        - lambda.yml
+      discard-paths: yes
+  
