@@ -8,14 +8,14 @@ Parameters:
     Default: 10
 
 Resources: 
-  Lambda-test:
+  Lambdatest:
     Type: AWS::Lambda::Function
     Architectures: 
       - x86_64
     Code: 
       function/
     Description: 'Test lambda function'
-    FunctionName: lambda-test
+    FunctionName: sajallambda
     Handler: index.func_handler
     MemorySize: 240
     Role: !Ref LambdaTrustRole
