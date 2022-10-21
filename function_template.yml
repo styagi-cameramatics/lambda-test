@@ -14,23 +14,9 @@ Resources:
       - x86_64
     Code: 
       function/
-    # CodeSigningConfigArn: String
-    # DeadLetterConfig: 
-    #   DeadLetterConfig
     Description: 'Test lambda function'
-    # Environment: 
-    #   Environment
-    # EphemeralStorage: 
-    #   EphemeralStorage
-    # FileSystemConfigs: 
-    #   - FileSystemConfig
     FunctionName: lambda-test
     Handler: index.func_handler
-    # ImageConfig: 
-    #   ImageConfig
-    # KmsKeyArn: String
-    # Layers: 
-    #   - String
     MemorySize: 240
     Role: !Ref LambdaTrustRole
     Runtime: python3.9
@@ -67,7 +53,6 @@ Resources:
             Statement:
               - Action:
                   - 's3:ListAllMyBuckets'
-                  # -  
                 Resource: '*'
                 Effect: Allow
     
