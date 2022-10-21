@@ -17,6 +17,8 @@ phases:
     commands:
       - sam --version
       - aws --version
+      - echo $S3_BUCKET
+      - env
       - sam build --template function_template.yml -b build/lambda-function
       - sam package --template-file build/rest-api/API/template.yaml --s3-bucket $S3_BUCKET --output-template-file lambda.yml
 
