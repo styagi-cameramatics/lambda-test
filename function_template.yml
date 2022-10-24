@@ -10,23 +10,24 @@ Parameters:
 Resources: 
   Lambdatest:
     Type: AWS::Lambda::Function
-    Architectures: 
-      - x86_64
-    Code: 
-      function/
-    DependsOn:
-      - LambdaTrustRole
-    Description: 'Test lambda function'
-    FunctionName: sajallambda
-    Handler: index.func_handler
-    MemorySize: 240
-    Role: !Ref LambdaTrustRole
-    Runtime: python3.9
-    Timeout: !Ref LambdaTimeout
-    Tags: 
-      - test
-      - sajal
-    Timeout: !Ref LambdaTimeout
+    Properties:
+      Architectures: 
+        - x86_64
+      Code: 
+        function/
+      DependsOn:
+        - LambdaTrustRole
+      Description: 'Test lambda function'
+      FunctionName: sajallambda
+      Handler: index.func_handler
+      MemorySize: 240
+      Role: !Ref LambdaTrustRole
+      Runtime: python3.9
+      Timeout: !Ref LambdaTimeout
+      Tags: 
+        - test
+        - sajal
+      Timeout: !Ref LambdaTimeout
 
   LambdaTrustRole:
     Type: 'AWS::IAM::Role'
