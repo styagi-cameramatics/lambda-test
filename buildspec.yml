@@ -10,7 +10,7 @@ phases:
       - pip install -U setuptools
       - pip install --upgrade pip
       - pip install --upgrade awscli
-      - pip install aws-sam-cli
+      - pip install aws-sam-cli==1.41.0
       
   
   build:
@@ -21,7 +21,7 @@ phases:
       # - env
       - sam build --template function_template.yml -b build/lambda-function
       - ls build/lambda-function
-      - sam package --template-file build/lambda-function/template.yml --s3-bucket $S3_BUCKET --output-template-file lambda.yml
+      - sam package -t build/lambda-function/template.yml --s3-bucket $S3_BUCKET --output-template-file lambda.yml
 
 artifacts:
   secondary-artifacts:
