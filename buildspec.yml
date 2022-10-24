@@ -21,11 +21,11 @@ phases:
       # - env
       - sam build --template function_template.yml -b build/lambda-function
       - ls build/lambda-function
-      - sam package -t build/lambda-function/template.yaml --s3-bucket $S3_BUCKET --output-template-file lambda.yml
+      - sam package -t build/lambda-function/template.yaml --s3-bucket $S3_BUCKET --output-template-file lambda-func.yml
 
 artifacts:
   secondary-artifacts:
     secondary_artifact_packaged:
       files:
-        - lambda.yml
-      name: artifact-1
+        - lambda-func.yml
+  
