@@ -3,7 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 
 Parameters:
   LambdaTimeout:
-    Type: Integer
+    Type: String
     Description: Timeout of lambda function
     Default: 10
 
