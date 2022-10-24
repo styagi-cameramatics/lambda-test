@@ -28,3 +28,4 @@ artifacts:
     secondary_artifact_packaged:
       files:
         - lambda.yml
+      name: artifact-1
