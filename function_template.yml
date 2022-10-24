@@ -3,7 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 
 Parameters:
   LambdaTimeout:
-    Type: String
+    Type: Integer
     Description: Timeout of lambda function
     Default: 10
 
@@ -26,7 +26,7 @@ Resources:
     Tags: 
       - test
       - sajal
-    Timeout: Integer
+    Timeout: !Ref LambdaTimeout
 
   LambdaTrustRole:
     Type: 'AWS::IAM::Role'
