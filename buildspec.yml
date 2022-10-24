@@ -20,7 +20,7 @@ phases:
       - echo $S3_BUCKET
       - env
       - sam build --template function_template.yml -b build/lambda-function
-      - sam package --template-file build/rest-api/API/template.yaml --s3-bucket $S3_BUCKET --output-template-file lambda.yml
+      - sam package --template-file build/lambda-function/template.yml --s3-bucket $S3_BUCKET --output-template-file lambda.yml
 
 artifacts:
   secondary-artifacts:
