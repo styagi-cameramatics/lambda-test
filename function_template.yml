@@ -14,6 +14,8 @@ Resources:
       - x86_64
     Code: 
       function/
+    DependsOn:
+      - LambdaTrustRole
     Description: 'Test lambda function'
     FunctionName: sajallambda
     Handler: index.func_handler
