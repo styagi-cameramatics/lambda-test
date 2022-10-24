@@ -10,13 +10,13 @@ Parameters:
 Resources: 
   Lambdatest:
     Type: AWS::Lambda::Function
+    DependsOn:
+        - LambdaTrustRole
     Properties:
       Architectures: 
         - x86_64
       Code: 
         function/
-      DependsOn:
-        - LambdaTrustRole
       Description: 'Test lambda function'
       FunctionName: sajallambda
       Handler: index.func_handler
