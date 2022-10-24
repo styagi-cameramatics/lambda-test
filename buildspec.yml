@@ -28,5 +28,3 @@ artifacts:
     secondary_artifact_packaged:
       files:
         - lambda.yml
-      discard-paths: yes
-  
