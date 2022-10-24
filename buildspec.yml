@@ -10,7 +10,7 @@ phases:
       - pip install -U setuptools
       - pip install --upgrade pip
       - pip install --upgrade awscli
-      - pip install aws-sam-cli==1.41.0
+      - pip install aws-sam-cli
       
   
   build:
