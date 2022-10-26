@@ -24,6 +24,8 @@ phases:
       - sam package -t build/lambda-function/template.yaml --s3-bucket $S3_BUCKET --output-template-file lambda-func.yml
 
 artifacts:
+  files:
+    - "**/*"
   secondary-artifacts:
     secondary_artifact_packaged:
       files:
