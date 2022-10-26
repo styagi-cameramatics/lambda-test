@@ -50,7 +50,7 @@ Resources:
                   - 'logs:DescribeLogStreams'
                 Resource: '*'
                 Effect: Allow
-        - PolicyName: 
+        - PolicyName: LambdaS3Policy
           PolicyDocument:
             Version: 2012-10-17
             Statement:
