@@ -22,6 +22,7 @@ phases:
       - sam build --template function_template.yml -b build/lambda-function
       - ls build/lambda-function
       - sam package -t build/lambda-function/template.yaml --s3-bucket $S3_BUCKET --output-template-file lambda-func.yml
+      - ls lambda-func.yml
 
 artifacts:
   files:
