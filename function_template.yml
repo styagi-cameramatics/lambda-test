@@ -25,8 +25,10 @@ Resources:
       Runtime: python3.9
       Timeout: !Ref LambdaTimeout
       Tags: 
-        - test
-        - sajal
+        - Key: "author"
+          Value: "sajal"
+        - Key: "env"
+          Value: "test"
       Timeout: !Ref LambdaTimeout
 
   LambdaTrustRole:
@@ -36,8 +38,10 @@ Resources:
       Path: /
       RoleName: test-role
       Tags: 
-        - test
-        - sajal
+        - Key: "author"
+          Value: "sajal"
+        - Key: "env"
+          Value: "test"
       Policies:
         - PolicyName: LambdaWorkerPolicy
           PolicyDocument:
