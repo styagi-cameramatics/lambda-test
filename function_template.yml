@@ -21,7 +21,7 @@ Resources:
       FunctionName: sajallambda
       Handler: index.func_handler
       MemorySize: 240
-      Role: !Ref LambdaTrustRole
+      Role: !GetAtt LambdaTrustRole.Arn
       Runtime: python3.9
       Timeout: !Ref LambdaTimeout
       Tags: 
